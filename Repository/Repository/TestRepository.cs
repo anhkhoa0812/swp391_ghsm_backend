@@ -11,7 +11,7 @@ namespace Repository.Repository
    public class TestRepository : GenericRepository<Test>
     {
         public TestRepository() { }
-        public TestRepository(SWP391GHSMContext context) => _context = context;
+        public TestRepository(Swp391ghsmContext context) => _context = context;
 
 
     }

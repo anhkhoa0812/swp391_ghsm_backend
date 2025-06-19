@@ -14,9 +14,9 @@ namespace Repository.Repository
 {
     public class BlogRepository : GenericRepository<Blog>
     {
-        private readonly SWP391GHSMContext _context;
+        private readonly Swp391ghsmContext _context;
         private readonly ICloudinaryService _cloudinaryService;
-        public BlogRepository(SWP391GHSMContext context, ICloudinaryService cloudinaryService)
+        public BlogRepository(Swp391ghsmContext context, ICloudinaryService cloudinaryService)
         {
             _context = context;
             _cloudinaryService = cloudinaryService;

@@ -17,11 +17,11 @@ namespace Repository.Repository
 {
     public class AuthenRepository : GenericRepository<User>
     {
-        private readonly SWP391GHSMContext _context;
+        private readonly Swp391ghsmContext _context;
         private readonly IConfiguration _configuration;
 
 
-        public AuthenRepository(SWP391GHSMContext context, IConfiguration configuration)
+        public AuthenRepository(Swp391ghsmContext context, IConfiguration configuration)
         {
             _context = context;
             _configuration = configuration;

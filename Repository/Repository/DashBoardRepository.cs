@@ -10,9 +10,9 @@ namespace Repository.Repository
 {
     public class DashBoardRepository 
     {
-        private readonly SWP391GHSMContext _context;
+        private readonly Swp391ghsmContext _context;
 
-        public DashBoardRepository(SWP391GHSMContext context)
+        public DashBoardRepository(Swp391ghsmContext context)
         {
             _context = context;
         }
