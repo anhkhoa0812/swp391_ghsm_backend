@@ -5,11 +5,11 @@ namespace Repository.Models;
 
 public partial class TestResult
 {
-    public int ResultId { get; set; }
+    public Guid ResultId { get; set; }
 
-    public int UserId { get; set; }
+    public Guid UserId { get; set; }
 
-    public int TestId { get; set; }
+    public Guid TestId { get; set; }
 
     public string? TypeStis { get; set; }
 

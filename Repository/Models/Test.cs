@@ -5,7 +5,7 @@ namespace Repository.Models;
 
 public partial class Test
 {
-    public int TestId { get; set; }
+    public Guid TestId { get; set; }
 
     public string Name { get; set; } = null!;
 

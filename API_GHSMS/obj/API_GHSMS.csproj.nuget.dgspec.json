@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\SWP391_GHSMS_BE\\API_GHSMS\\API_GHSMS.csproj": {}
+    "E:\\SWP_WinnerTech\\swp391_ghsm_backend\\API_GHSMS\\API_GHSMS.csproj": {}
   },
   "projects": {
-    "D:\\SWP391_GHSMS_BE\\API_GHSMS\\API_GHSMS.csproj": {
+    "E:\\SWP_WinnerTech\\swp391_ghsm_backend\\API_GHSMS\\API_GHSMS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SWP391_GHSMS_BE\\API_GHSMS\\API_GHSMS.csproj",
+        "projectUniqueName": "E:\\SWP_WinnerTech\\swp391_ghsm_backend\\API_GHSMS\\API_GHSMS.csproj",
         "projectName": "API_GHSMS",
-        "projectPath": "D:\\SWP391_GHSMS_BE\\API_GHSMS\\API_GHSMS.csproj",
-        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "D:\\SWP391_GHSMS_BE\\API_GHSMS\\obj\\",
+        "projectPath": "E:\\SWP_WinnerTech\\swp391_ghsm_backend\\API_GHSMS\\API_GHSMS.csproj",
+        "packagesPath": "C:\\Users\\acer\\.nuget\\packages\\",
+        "outputPath": "E:\\SWP_WinnerTech\\swp391_ghsm_backend\\API_GHSMS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,16 +26,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "C:\\Users\\Acer\\.nuget\\packages": {},
+          "c:\\program files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\SWP391_GHSMS_BE\\Service\\Service.csproj": {
-                "projectPath": "D:\\SWP391_GHSMS_BE\\Service\\Service.csproj"
+              "E:\\SWP_WinnerTech\\swp391_ghsm_backend\\Service\\Service.csproj": {
+                "projectPath": "E:\\SWP_WinnerTech\\swp391_ghsm_backend\\Service\\Service.csproj"
               }
             }
           }
@@ -44,7 +43,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -92,24 +97,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\SWP391_GHSMS_BE\\Repository\\Repository.csproj": {
+    "E:\\SWP_WinnerTech\\swp391_ghsm_backend\\Repository\\Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SWP391_GHSMS_BE\\Repository\\Repository.csproj",
+        "projectUniqueName": "E:\\SWP_WinnerTech\\swp391_ghsm_backend\\Repository\\Repository.csproj",
         "projectName": "Repository",
-        "projectPath": "D:\\SWP391_GHSMS_BE\\Repository\\Repository.csproj",
-        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "D:\\SWP391_GHSMS_BE\\Repository\\obj\\",
+        "projectPath": "E:\\SWP_WinnerTech\\swp391_ghsm_backend\\Repository\\Repository.csproj",
+        "packagesPath": "C:\\Users\\acer\\.nuget\\packages\\",
+        "outputPath": "E:\\SWP_WinnerTech\\swp391_ghsm_backend\\Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -118,8 +123,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "C:\\Users\\Acer\\.nuget\\packages": {},
+          "c:\\program files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -132,7 +136,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -141,6 +151,18 @@
             "BCrypt.Net-Next": {
               "target": "Package",
               "version": "[4.0.3, )"
+            },
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.27.6, )"
+            },
+            "HtmlSanitizer": {
+              "target": "Package",
+              "version": "[9.0.886, )"
+            },
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.3.0, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -177,24 +199,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\SWP391_GHSMS_BE\\Service\\Service.csproj": {
+    "E:\\SWP_WinnerTech\\swp391_ghsm_backend\\Service\\Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SWP391_GHSMS_BE\\Service\\Service.csproj",
+        "projectUniqueName": "E:\\SWP_WinnerTech\\swp391_ghsm_backend\\Service\\Service.csproj",
         "projectName": "Service",
-        "projectPath": "D:\\SWP391_GHSMS_BE\\Service\\Service.csproj",
-        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "D:\\SWP391_GHSMS_BE\\Service\\obj\\",
+        "projectPath": "E:\\SWP_WinnerTech\\swp391_ghsm_backend\\Service\\Service.csproj",
+        "packagesPath": "C:\\Users\\acer\\.nuget\\packages\\",
+        "outputPath": "E:\\SWP_WinnerTech\\swp391_ghsm_backend\\Service\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -203,16 +225,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "C:\\Users\\Acer\\.nuget\\packages": {},
+          "c:\\program files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\SWP391_GHSMS_BE\\Repository\\Repository.csproj": {
-                "projectPath": "D:\\SWP391_GHSMS_BE\\Repository\\Repository.csproj"
+              "E:\\SWP_WinnerTech\\swp391_ghsm_backend\\Repository\\Repository.csproj": {
+                "projectPath": "E:\\SWP_WinnerTech\\swp391_ghsm_backend\\Repository\\Repository.csproj"
               }
             }
           }
@@ -221,11 +242,23 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.27.6, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -242,7 +275,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

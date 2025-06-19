@@ -5,11 +5,11 @@ namespace Repository.Models;
 
 public partial class Question
 {
-    public int QuestionId { get; set; }
+    public Guid QuestionId { get; set; }
 
-    public int ConsultantId { get; set; }
+    public Guid ConsultantId { get; set; }
 
-    public int UserId { get; set; }
+    public Guid UserId { get; set; }
 
     public string QuestionText { get; set; } = null!;
 

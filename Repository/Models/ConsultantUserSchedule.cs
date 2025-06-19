@@ -5,13 +5,13 @@ namespace Repository.Models;
 
 public partial class ConsultantUserSchedule
 {
-    public int ScheduleId { get; set; }
+    public Guid ScheduleId { get; set; }
 
-    public int UserId { get; set; }
+    public Guid UserId { get; set; }
 
-    public int ConsultantId { get; set; }
+    public Guid ConsultantId { get; set; }
 
-    public int? ConsultationBookingId { get; set; }
+    public Guid? ConsultationBookingId { get; set; }
 
     public DateTime ScheduleDateTime { get; set; }
 

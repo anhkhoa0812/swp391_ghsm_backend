@@ -10,7 +10,7 @@ namespace Service.Interface
     public interface ITestService
     {
         Task<List<Test>> GetAllAsync();
-        Task<Test> GetByIdAsync(int UserId);
+        Task<Test> GetByIdAsync(Guid UserId);
         Task<int> UpdateAsync(Test test);
         Task<int> CreateAsync(Test test);
     }
