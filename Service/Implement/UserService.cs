@@ -22,7 +22,7 @@ namespace Service.Implement
             return await _repository.CreateAsync(user);
         }
 
-        public async Task<bool> DeleteByIdAsync(int UserId)
+        public async Task<bool> DeleteByIdAsync(Guid UserId)
         {
             var user = _repository.GetById(UserId);
             if (user == null)
@@ -39,7 +39,7 @@ namespace Service.Implement
             return await _repository.GetAllAsync();
         }
 
-        public async Task<User> GetByIdAsync(int UserId)
+        public async Task<User> GetByIdAsync(Guid UserId)
         {
             return await _repository.GetByIdAsync(UserId);
         }
@@ -49,7 +49,7 @@ namespace Service.Implement
             await _repository.UpdateAsync(user);
             return await _repository.SaveAsync(); 
         }
-        public async Task<UserProfileDTO?> GetProfileAsync(int userId)
+        public async Task<UserProfileDTO?> GetProfileAsync(Guid userId)
         {
             var user = await _repository.GetByIdAsync(userId);
             if (user == null) return null;

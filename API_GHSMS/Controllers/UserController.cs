@@ -26,7 +26,7 @@ namespace API_GHSMS.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetById(int id)
+        public async Task<ActionResult<User>> GetById(Guid id)
         {
             var user = await _userService.GetByIdAsync(id);
             if (user == null)
@@ -44,7 +44,7 @@ namespace API_GHSMS.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Update(int id, [FromBody] User user)
+        public async Task<ActionResult> Update(Guid id, [FromBody] User user)
         {
             if (id != user.UserId)
                 return BadRequest("ID mismatch");
@@ -60,7 +60,7 @@ namespace API_GHSMS.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<ActionResult> Delete(Guid id)
         {
             var result = await _userService.DeleteByIdAsync(id);
             if (result)
@@ -73,7 +73,7 @@ namespace API_GHSMS.Controllers
             }
         }
         [HttpGet("user-profile/{id}")]
-        public async Task<IActionResult> GetProfile(int id)
+        public async Task<IActionResult> GetProfile(Guid id)
         {
             var profile = await _userService.GetProfileAsync(id);
             if (profile == null)

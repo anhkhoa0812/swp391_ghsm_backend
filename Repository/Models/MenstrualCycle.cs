@@ -5,9 +5,9 @@ namespace Repository.Models;
 
 public partial class MenstrualCycle
 {
-    public int CyclesId { get; set; }
+    public Guid CyclesId { get; set; }
 
-    public int UserId { get; set; }
+    public Guid UserId { get; set; }
 
     public DateOnly StartDate { get; set; }
 

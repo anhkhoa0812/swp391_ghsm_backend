@@ -11,11 +11,11 @@ namespace Service.Interface
     public interface IUserService
     {
         Task<List<User>> GetAllAsync();
-        Task<User> GetByIdAsync(int UserId);
+        Task<User> GetByIdAsync(Guid UserId);
         Task<int> UpdateAsync(User user);
         Task<int> CreateAsync(User user);
-        Task<bool> DeleteByIdAsync(int UserId);
-        Task<UserProfileDTO?> GetProfileAsync(int userId);
+        Task<bool> DeleteByIdAsync(Guid UserId);
+        Task<UserProfileDTO?> GetProfileAsync(Guid userId);
         Task<bool> UpdateProfileAsync(UserProfileDTO dto);
     }
 }

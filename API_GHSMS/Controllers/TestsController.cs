@@ -31,7 +31,7 @@ namespace API_GHSMS.Controllers
 
         // GET: api/Tests/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Test>> GetTest(int id)
+        public async Task<ActionResult<Test>> GetTest(Guid id)
         {
             var test = await _service.GetByIdAsync(id);
 
@@ -46,7 +46,7 @@ namespace API_GHSMS.Controllers
         // PUT: api/Tests/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<ActionResult> Update(int id, [FromBody] Test test)
+        public async Task<ActionResult> Update(Guid id, [FromBody] Test test)
         {
             if (id != test.TestId)
                 return BadRequest("ID mismatch");

@@ -5,9 +5,9 @@ namespace Repository.Models;
 
 public partial class ConsultantApplication
 {
-    public int ApplicationId { get; set; }
+    public Guid ApplicationId { get; set; }
 
-    public int UserId { get; set; }
+    public Guid UserId { get; set; }
 
     public string? Degree { get; set; }
 

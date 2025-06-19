@@ -5,11 +5,11 @@ namespace Repository.Models;
 
 public partial class TestBooking
 {
-    public int TestBookingId { get; set; }
+    public Guid TestBookingId { get; set; }
 
-    public int UserId { get; set; }
+    public Guid UserId { get; set; }
 
-    public int TestId { get; set; }
+    public Guid TestId { get; set; }
 
     public DateTime ScheduledDate { get; set; }
 

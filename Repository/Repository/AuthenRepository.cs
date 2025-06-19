@@ -64,7 +64,7 @@ namespace Repository.Repository
             return GenerateJwtToken(user);
         }
 
-        public async Task<User> RegisterAsync(string fullName, string email, string password, int roleId, string phoneNumber, string gender)
+        public async Task<User> RegisterAsync(string fullName, string email, string password, Guid roleId, string phoneNumber, string gender)
         {
             // Kiểm tra email trùng
             var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
@@ -82,6 +82,7 @@ namespace Repository.Repository
             // Tạo user
             var user = new User
             {
+                UserId = Guid.NewGuid(),
                 FullName = fullName,
                 Email = email,
                 PasswordHash = passwordHash,

@@ -5,11 +5,11 @@ namespace Repository.Models;
 
 public partial class Payment
 {
-    public int PaymentId { get; set; }
+    public Guid PaymentId { get; set; }
 
-    public int UserId { get; set; }
+    public Guid UserId { get; set; }
 
-    public int? TestBooking { get; set; }
+    public Guid? TestBooking { get; set; }
 
     public decimal Amount { get; set; }
 

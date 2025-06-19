@@ -26,7 +26,7 @@ namespace Service.Implement
             return  _repository.GetAllAsync();
         }
 
-        public async Task<Test> GetByIdAsync(int id)
+        public async Task<Test> GetByIdAsync(Guid id)
         {
             return await _repository.GetByIdAsync(id);
         }
