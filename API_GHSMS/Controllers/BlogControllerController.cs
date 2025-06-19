@@ -81,7 +81,7 @@ namespace API_GHSMS.Controllers
             if (response == null)
             {
                 return NotFound(new {Message = "Blog not found"});
-            }
+            }   
 
             return Ok(new {Message = "Get blog success", Data = response });
         }

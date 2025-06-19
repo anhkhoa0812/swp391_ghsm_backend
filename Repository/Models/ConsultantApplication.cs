@@ -19,7 +19,7 @@ public partial class ConsultantApplication
 
     public DateTime? SubmittedAt { get; set; }
 
-    public int? ReviewedBy { get; set; }
+    public Guid? ReviewedBy { get; set; }
 
     public virtual User? ReviewedByNavigation { get; set; }
 

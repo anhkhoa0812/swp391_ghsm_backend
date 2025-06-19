@@ -134,8 +134,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -189,8 +189,30 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/get-blog": {
+      "get": {
+        "tags": [
+          "BlogController"
+        ],
+        "parameters": [
+          {
+            "name": "blogId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -291,8 +313,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -329,8 +351,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -438,8 +460,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -476,8 +498,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -516,8 +538,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -539,8 +561,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -628,8 +650,8 @@
         "type": "object",
         "properties": {
           "blogId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "title": {
             "type": "string",
@@ -640,8 +662,8 @@
             "nullable": true
           },
           "authorId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "createAt": {
             "type": "string",
@@ -662,20 +684,20 @@
         "type": "object",
         "properties": {
           "consultantId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "userId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "degree": {
             "type": "string",
             "nullable": true
           },
           "experienceYears": {
-            "type": "integer",
-            "format": "int32",
+            "type": "string",
+            "format": "uuid",
             "nullable": true
           },
           "bio": {
@@ -713,12 +735,12 @@
         "type": "object",
         "properties": {
           "applicationId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "userId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "degree": {
             "type": "string",
@@ -743,8 +765,8 @@
             "nullable": true
           },
           "reviewedBy": {
-            "type": "integer",
-            "format": "int32",
+            "type": "string",
+            "format": "uuid",
             "nullable": true
           },
           "reviewedByNavigation": {
@@ -760,20 +782,20 @@
         "type": "object",
         "properties": {
           "scheduleId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "userId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "consultantId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "consultationBookingId": {
-            "type": "integer",
-            "format": "int32",
+            "type": "string",
+            "format": "uuid",
             "nullable": true
           },
           "scheduleDateTime": {
@@ -814,16 +836,16 @@
         "type": "object",
         "properties": {
           "consultationBookingId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "userId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "consultantId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "datetime": {
             "type": "string",
@@ -912,21 +934,21 @@
         "type": "object",
         "properties": {
           "feedbackId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "userId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "testBookingId": {
-            "type": "integer",
-            "format": "int32",
+            "type": "string",
+            "format": "uuid",
             "nullable": true
           },
           "consultationBookingId": {
-            "type": "integer",
-            "format": "int32",
+            "type": "string",
+            "format": "uuid",
             "nullable": true
           },
           "rating": {
@@ -973,12 +995,12 @@
         "type": "object",
         "properties": {
           "cyclesId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "userId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "startDate": {
             "$ref": "#/components/schemas/DateOnly"
@@ -1001,12 +1023,12 @@
         "type": "object",
         "properties": {
           "reminderId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "userId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "type": {
             "type": "string",
@@ -1026,16 +1048,16 @@
         "type": "object",
         "properties": {
           "paymentId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "userId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "testBooking": {
-            "type": "integer",
-            "format": "int32",
+            "type": "string",
+            "format": "uuid",
             "nullable": true
           },
           "amount": {
@@ -1068,16 +1090,16 @@
         "type": "object",
         "properties": {
           "questionId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "consultantId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "userId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "questionText": {
             "type": "string",
@@ -1105,8 +1127,8 @@
         "type": "object",
         "properties": {
           "roleId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "roleName": {
             "type": "string",
@@ -1126,8 +1148,8 @@
         "type": "object",
         "properties": {
           "testId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "name": {
             "type": "string",
@@ -1162,16 +1184,16 @@
         "type": "object",
         "properties": {
           "testBookingId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "userId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "testId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "scheduledDate": {
             "type": "string",
@@ -1208,16 +1230,16 @@
         "type": "object",
         "properties": {
           "resultId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "userId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "testId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "typeStis": {
             "type": "string",
@@ -1252,8 +1274,8 @@
         "type": "object",
         "properties": {
           "userId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "fullName": {
             "type": "string",
@@ -1279,9 +1301,13 @@
             "type": "string",
             "nullable": true
           },
+          "avatar": {
+            "type": "string",
+            "nullable": true
+          },
           "roleId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "createAt": {
             "type": "string",
@@ -1407,16 +1433,16 @@
         "type": "object",
         "properties": {
           "messageId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "senderId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "receiverId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "message": {
             "type": "string",
@@ -1440,8 +1466,8 @@
         "type": "object",
         "properties": {
           "userId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "fullName": {
             "type": "string",
@@ -1487,8 +1513,8 @@
             "nullable": true
           },
           "roleId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "phoneNumber": {
             "type": "string",
