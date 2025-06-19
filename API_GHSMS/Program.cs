@@ -7,6 +7,7 @@ using Repository.Repository;
 using Service.Implement;
 using Service.Interface;
 using System.Text;
+using API_GHSMS.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +23,7 @@ builder.Services.AddControllers()
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<SWP391GHSMContext>();
+builder.Services.AddScoped<Swp391ghsmContext>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ITestService, TestService>();
 builder.Services.AddScoped<IDashBoardService,DashBoardService>();
@@ -92,5 +93,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
+app.MapHub<MessageHub>("hubs/message");
 app.Run();
