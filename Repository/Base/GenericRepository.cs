@@ -10,14 +10,14 @@ namespace Repository.Base
 {
     public class GenericRepository<T> where T : class
     {
-        protected SWP391GHSMContext _context;
+        protected Swp391ghsmContext _context;
 
     public GenericRepository()
     {
-        _context ??= new SWP391GHSMContext();
+        _context ??= new Swp391ghsmContext();
     }
 
-    public GenericRepository(SWP391GHSMContext context)
+    public GenericRepository(Swp391ghsmContext context)
     {
         _context = context;
     }

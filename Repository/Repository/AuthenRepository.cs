@@ -17,11 +17,11 @@ namespace Repository.Repository
 {
     public class AuthenRepository : GenericRepository<User>
     {
-        private readonly SWP391GHSMContext _context;
+        private readonly Swp391ghsmContext _context;
         private readonly IConfiguration _configuration;
 
 
-        public AuthenRepository(SWP391GHSMContext context, IConfiguration configuration)
+        public AuthenRepository(Swp391ghsmContext context, IConfiguration configuration)
         {
             _context = context;
             _configuration = configuration;
@@ -72,7 +72,7 @@ namespace Repository.Repository
                 throw new Exception("Email đã tồn tại.");
 
             // Kiểm tra role
-            var role = await _context.Roles.FirstOrDefaultAsync(r => r.RoleId == roleId);
+            var role = await _context.Role.FirstOrDefaultAsync(r => r.RoleId == roleId);
             if (role == null)
                 throw new Exception("Role không tồn tại.");
 

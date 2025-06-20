@@ -6,7 +6,7 @@ using Service.Interface;
 
 namespace API_GHSMS.Controllers
 {
-    public class BlogControllerController(IBlogService _blogService) : Controller
+    public class BlogController(IBlogService _blogService) : Controller
     {
 
         [HttpPost("create-blog")]

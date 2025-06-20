@@ -1,4 +1,4 @@
-using API_GHSMS.Controllers;
+﻿using API_GHSMS.Controllers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using OhBau.Service.CloudinaryService;
@@ -7,6 +7,8 @@ using Repository.Repository;
 using Service.Implement;
 using Service.Interface;
 using System.Text;
+using API_GHSMS.Hubs;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +24,7 @@ builder.Services.AddControllers()
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<SWP391GHSMContext>();
+builder.Services.AddScoped<Swp391ghsmContext>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ITestService, TestService>();
 builder.Services.AddScoped<IDashBoardService,DashBoardService>();
@@ -32,9 +34,14 @@ builder.Services.AddScoped<DashBoardRepository>();
 builder.Services.AddScoped<AuthenRepository>();
 builder.Services.AddScoped<IAuthenService, AuthenService>();
 
+builder.Services.AddScoped<ConsultantsRepository>();
+builder.Services.AddScoped<IConsultantsService, ConsultantsService>();
+
 builder.Services.AddScoped<BlogRepository>();
 builder.Services.AddScoped<IBlogService, BlogService>();
 builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
+
+builder.Services.AddSignalR();
 
 
 builder.Services.AddSingleton(sp =>
@@ -47,6 +54,13 @@ builder.Services.AddSingleton(sp =>
     return account;
 }   
 );
+
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+        options.JsonSerializerOptions.WriteIndented = true; 
+    });
 
 builder.Services.AddSingleton(sp =>
 {
@@ -92,5 +106,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
+app.MapHub<MessageHub>("hubs/message");
 app.Run();
