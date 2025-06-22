@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_GHSMS", "API_GHSMS\API_GHSMS.csproj", "{38BCA6FF-1626-4194-B8AE-CD5ABFC7F25D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayOSService", "PayOSService\PayOSService.csproj", "{146D5F13-229B-46E6-AAC1-47601F774C5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{38BCA6FF-1626-4194-B8AE-CD5ABFC7F25D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38BCA6FF-1626-4194-B8AE-CD5ABFC7F25D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38BCA6FF-1626-4194-B8AE-CD5ABFC7F25D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{146D5F13-229B-46E6-AAC1-47601F774C5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{146D5F13-229B-46E6-AAC1-47601F774C5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{146D5F13-229B-46E6-AAC1-47601F774C5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{146D5F13-229B-46E6-AAC1-47601F774C5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

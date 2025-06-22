@@ -9,6 +9,8 @@ using Service.Interface;
 using System.Text;
 using API_GHSMS.Hubs;
 using System.Text.Json.Serialization;
+using PayOSService.Config;
+using PayOSService.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,8 +42,15 @@ builder.Services.AddScoped<IConsultantsService, ConsultantsService>();
 builder.Services.AddScoped<BlogRepository>();
 builder.Services.AddScoped<IBlogService, BlogService>();
 builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
-
+builder.Services.AddScoped<BookingRepository>();
+builder.Services.AddScoped<IBookingService, BookingService>();
 builder.Services.AddSignalR();
+
+builder.Services.Configure<PayOSConfig>(
+    builder.Configuration.GetSection(PayOSConfig.ConfigName));
+builder.Services.AddHttpClient<IPayOSService, PayOSService.Services.PayOSService>();
+builder.Services.Configure<PayOSConfig>(builder.Configuration.GetSection("PayOS"));
+
 
 
 builder.Services.AddSingleton(sp =>

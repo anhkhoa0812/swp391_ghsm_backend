@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
+using Repository.Models.Enum;
 
 namespace Repository.Models;
 
@@ -25,7 +26,7 @@ public partial class TestBooking
     [Column("status")]
     [StringLength(20)]
     [Unicode(false)]
-    public string? Status { get; set; }
+    public string Status { get; set; }
 
     [Column("scheduleId")]
     public Guid? ScheduleId { get; set; }

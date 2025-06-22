@@ -256,6 +256,38 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "API_GHSMS.Controllers.BookingController",
+    "Method": "Booking",
+    "RelativePath": "api/v1/booking/booking",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Repository.DTO.BookingDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_GHSMS.Controllers.ConsultantUserScheduleController",
+    "Method": "Create",
+    "RelativePath": "api/v1/consultant-user-schedule/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Repository.DTO.CreateConsultantUserSchedule",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API_GHSMS.Controllers.ConsultantsController",
     "Method": "CreateConsultant",
     "RelativePath": "api/v1/consultants/create-consultant",
@@ -374,6 +406,53 @@
       {
         "Name": "consultantsId",
         "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_GHSMS.Controllers.PaymentController",
+    "Method": "CreatePayment",
+    "RelativePath": "api/v1/payment/create-payment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookingId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_GHSMS.Controllers.PaymentController",
+    "Method": "PaymentReturn",
+    "RelativePath": "api/v1/payment/return-payment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "code",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "orderId",
+        "Type": "System.Int64",
+        "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "cancel",
+        "Type": "System.Boolean",
         "IsRequired": false
       }
     ],

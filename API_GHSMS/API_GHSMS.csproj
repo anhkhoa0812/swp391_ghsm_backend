@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PayOSService\PayOSService.csproj" />
     <ProjectReference Include="..\Service\Service.csproj" />
   </ItemGroup>
 
