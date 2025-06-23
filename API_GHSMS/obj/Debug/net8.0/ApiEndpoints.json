@@ -71,7 +71,7 @@
     "Parameters": [
       {
         "Name": "test",
-        "Type": "Repository.Models.Test",
+        "Type": "Repository.DTO.TestDTO",
         "IsRequired": true
       }
     ],
@@ -120,6 +120,38 @@
         "Name": "test",
         "Type": "Repository.Models.Test",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_GHSMS.Controllers.TestsController",
+    "Method": "GetTestByConsutant",
+    "RelativePath": "api/Tests/get-test-by-consutant",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ConsutantId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_GHSMS.Controllers.TestsController",
+    "Method": "GetTestDetail",
+    "RelativePath": "api/Tests/get-test-detail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "TestId",
+        "Type": "System.Guid",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -256,7 +288,267 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "API_GHSMS.Controllers.BlogControllerController",
+    "ContainingType": "API_GHSMS.Controllers.BookingController",
+    "Method": "Booking",
+    "RelativePath": "api/v1/booking/booking",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Repository.DTO.BookingDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_GHSMS.Controllers.BookingController",
+    "Method": "GetUserBooking",
+    "RelativePath": "api/v1/booking/get-booking-by-user",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_GHSMS.Controllers.ConsultantsController",
+    "Method": "CreateConsultant",
+    "RelativePath": "api/v1/consultants/create-consultant",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "FullName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Password",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PhoneNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Gender",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Address",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Avatar",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Degree",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "experienceYears",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Bio",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_GHSMS.Controllers.ConsultantsController",
+    "Method": "DeleteConsultants",
+    "RelativePath": "api/v1/consultants/delete-consultants",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "consultantsId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_GHSMS.Controllers.ConsultantsController",
+    "Method": "EditConsultants",
+    "RelativePath": "api/v1/consultants/edit-consultants/{consultantsId}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "consultantsId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Repository.DTO.CreateConsultantsDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_GHSMS.Controllers.ConsultantsController",
+    "Method": "GetConsultants",
+    "RelativePath": "api/v1/consultants/get-Consultants",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_GHSMS.Controllers.ConsultantsController",
+    "Method": "GetConsultantsDetail",
+    "RelativePath": "api/v1/consultants/get-detail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "consultantsId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_GHSMS.Controllers.PaymentController",
+    "Method": "CreatePayment",
+    "RelativePath": "api/v1/payment/create-payment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookingId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_GHSMS.Controllers.PaymentController",
+    "Method": "PaymentReturn",
+    "RelativePath": "api/v1/payment/return-payment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "code",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "orderId",
+        "Type": "System.Int64",
+        "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "cancel",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_GHSMS.Controllers.TestResultController",
+    "Method": "CreateTestResult",
+    "RelativePath": "api/v1/test-result/create-test-result",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Repository.DTO.CreateTestResult",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_GHSMS.Controllers.TestResultController",
+    "Method": "EditTestResult",
+    "RelativePath": "api/v1/test-result/edit-test-result/{resultId}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "resultId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Repository.DTO.CreateTestResult",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_GHSMS.Controllers.TestResultController",
+    "Method": "GetTestResultByUserBooking",
+    "RelativePath": "api/v1/test-result/get-test-result-by-user-booking",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookingId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_GHSMS.Controllers.TestResultController",
+    "Method": "GetUserTestResultByConsulTant",
+    "RelativePath": "api/v1/test-result/get-user-test-result-by-consutant",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_GHSMS.Controllers.BlogController",
     "Method": "CreateBlog",
     "RelativePath": "create-blog",
     "HttpMethod": "POST",
@@ -282,7 +574,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "API_GHSMS.Controllers.BlogControllerController",
+    "ContainingType": "API_GHSMS.Controllers.BlogController",
     "Method": "DeleteBlog",
     "RelativePath": "delete-blog/{blogId}",
     "HttpMethod": "DELETE",
@@ -298,7 +590,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "API_GHSMS.Controllers.BlogControllerController",
+    "ContainingType": "API_GHSMS.Controllers.BlogController",
     "Method": "EditBlog",
     "RelativePath": "edit-blog/{blogId}",
     "HttpMethod": "PATCH",
@@ -329,7 +621,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "API_GHSMS.Controllers.BlogControllerController",
+    "ContainingType": "API_GHSMS.Controllers.BlogController",
     "Method": "GetBlog",
     "RelativePath": "get-blog",
     "HttpMethod": "GET",
@@ -345,7 +637,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "API_GHSMS.Controllers.BlogControllerController",
+    "ContainingType": "API_GHSMS.Controllers.BlogController",
     "Method": "GetBlogs",
     "RelativePath": "get-blogs",
     "HttpMethod": "GET",

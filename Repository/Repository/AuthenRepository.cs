@@ -72,7 +72,7 @@ namespace Repository.Repository
                 throw new Exception("Email đã tồn tại.");
 
             // Kiểm tra role
-            var role = await _context.Roles.FirstOrDefaultAsync(r => r.RoleId == roleId);
+            var role = await _context.Role.FirstOrDefaultAsync(r => r.RoleId == roleId);
             if (role == null)
                 throw new Exception("Role không tồn tại.");
 

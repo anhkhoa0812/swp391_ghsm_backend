@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Repository.DTO;
 using Repository.Models;
+using Repository.Util;
 using Service.Implement;
 using Service.Interface;
 
@@ -64,14 +67,36 @@ namespace API_GHSMS.Controllers
         // POST: api/Tests
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult> Create([FromBody] Test test)
+        [Authorize(Roles = "Consutant")]
+        public async Task<ActionResult> Create([FromBody] TestDTO test)
         {
-            var result = await _service.CreateAsync(test);
-            if (result > 0)
-                return Ok(new { message = "Test created", Testid = test.TestId });
+            var userId = UserUtil.GetUserId(User);
+            test.consultantId = userId;
+            var result = await _service.AddTest(test);
+            if (result == true)
+                return Ok(new { message = "Test created"});
             return BadRequest("Failed to create test");
         }
 
+
+        [HttpGet("get-test-by-consutant")]
+        public async Task<IActionResult> GetTestByConsutant([FromQuery] Guid ConsutantId)
+        {
+            var response = await _service.GetTestByConsutant(ConsutantId);
+            return Ok(response);
+        }
+
+        [HttpGet("get-test-detail")]
+        public async Task<IActionResult> GetTestDetail([FromQuery]Guid TestId)
+        {
+            var response = await _service.GetTestDetailAsync(TestId);
+            if (response == null)
+            {
+                return NotFound("Test not found");
+            }
+
+            return Ok(response);
+        }
         
     }
 }

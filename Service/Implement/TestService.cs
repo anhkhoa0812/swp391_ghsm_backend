@@ -1,4 +1,5 @@
-﻿using Repository.Models;
+﻿using Repository.DTO;
+using Repository.Models;
 using Repository.Repository;
 using Service.Interface;
 using System;
@@ -16,6 +17,12 @@ namespace Service.Implement
         {
             _repository = repository;
         }
+
+        public async Task<bool> AddTest(TestDTO test)
+        {
+            return await _repository.CreateTest(test);
+        }
+
         public async Task<int> CreateAsync(Test test)
         {
             return await _repository.CreateAsync(test);
@@ -29,6 +36,16 @@ namespace Service.Implement
         public async Task<Test> GetByIdAsync(Guid id)
         {
             return await _repository.GetByIdAsync(id);
+        }
+
+        public async Task<List<TestResponse>> GetTestByConsutant(Guid ConsutantId)
+        {
+            return await _repository.GetTestsByConsutant(ConsutantId);
+        }
+
+        public async Task<TestDetailResponse> GetTestDetailAsync(Guid TestId)
+        {
+            return await _repository.GetTestDetail(TestId);
         }
 
         public async Task<int> UpdateAsync(Test test)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Repository.Models.Enum;
 
 namespace Repository.Models;
 
@@ -21,7 +22,7 @@ public partial class Swp391ghsmContext : DbContext
 
     public virtual DbSet<Consultant> Consultants { get; set; }
 
-    public virtual DbSet<ConsultantUserSchedule> ConsultantUserSchedules { get; set; }
+    //public virtual DbSet<ConsultantUserSchedule> ConsultantUserSchedules { get; set; }
 
     public virtual DbSet<ConsultationBooking> ConsultationBookings { get; set; }
 
@@ -41,7 +42,7 @@ public partial class Swp391ghsmContext : DbContext
 
     public virtual DbSet<Question> Questions { get; set; }
 
-    public virtual DbSet<Role> Roles { get; set; }
+    public virtual DbSet<Role> Role { get; set; }
 
     public virtual DbSet<Test> Tests { get; set; }
 
@@ -52,6 +53,7 @@ public partial class Swp391ghsmContext : DbContext
     public virtual DbSet<User> Users { get; set; }
 
     public virtual DbSet<UserMessage> UserMessages { get; set; }
+    public virtual DbSet<Transaction> Transaction { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -85,25 +87,6 @@ public partial class Swp391ghsmContext : DbContext
             entity.HasOne(d => d.User).WithMany(p => p.Consultants)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Consultan__userI__7B5B524B");
-        });
-
-        modelBuilder.Entity<ConsultantUserSchedule>(entity =>
-        {
-            entity.HasKey(e => e.ScheduleId).HasName("PK__Consulta__A532EDD46A7CD89D");
-
-            entity.Property(e => e.ScheduleId).ValueGeneratedNever();
-            entity.Property(e => e.CreateAt).HasDefaultValueSql("(getdate())");
-            entity.Property(e => e.Status).HasDefaultValue("PENDING");
-
-            entity.HasOne(d => d.Consultant).WithMany(p => p.ConsultantUserSchedules)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Consultan__consu__7C4F7684");
-
-            entity.HasOne(d => d.ConsultationBooking).WithMany(p => p.ConsultantUserSchedules).HasConstraintName("FK__Consultan__consu__7D439ABD");
-
-            entity.HasOne(d => d.User).WithMany(p => p.ConsultantUserSchedules)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Consultan__userI__7E37BEF6");
         });
 
         modelBuilder.Entity<ConsultationBooking>(entity =>
@@ -229,7 +212,6 @@ public partial class Swp391ghsmContext : DbContext
             entity.Property(e => e.TestBookingId).ValueGeneratedNever();
             entity.Property(e => e.Status).HasDefaultValue("PENDING");
 
-            entity.HasOne(d => d.Schedule).WithMany(p => p.TestBookings).HasConstraintName("FK_TestBooking_Schedule");
 
             entity.HasOne(d => d.Test).WithMany(p => p.TestBookings)
                 .OnDelete(DeleteBehavior.ClientSetNull)

@@ -70,7 +70,7 @@
     "/create-blog": {
       "post": {
         "tags": [
-          "BlogController"
+          "Blog"
         ],
         "requestBody": {
           "content": {
@@ -114,7 +114,7 @@
     "/get-blogs": {
       "get": {
         "tags": [
-          "BlogController"
+          "Blog"
         ],
         "responses": {
           "200": {
@@ -126,7 +126,7 @@
     "/edit-blog/{blogId}": {
       "patch": {
         "tags": [
-          "BlogController"
+          "Blog"
         ],
         "parameters": [
           {
@@ -181,7 +181,7 @@
     "/delete-blog/{blogId}": {
       "delete": {
         "tags": [
-          "BlogController"
+          "Blog"
         ],
         "parameters": [
           {
@@ -204,7 +204,7 @@
     "/get-blog": {
       "get": {
         "tags": [
-          "BlogController"
+          "Blog"
         ],
         "parameters": [
           {
@@ -223,10 +223,422 @@
         }
       }
     },
+    "/api/v1/booking/booking": {
+      "post": {
+        "tags": [
+          "Booking"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookingDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookingDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookingDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/booking/get-booking-by-user": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/consultants/create-consultant": {
+      "post": {
+        "tags": [
+          "Consultants"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "FullName": {
+                    "type": "string"
+                  },
+                  "Email": {
+                    "type": "string"
+                  },
+                  "Password": {
+                    "type": "string"
+                  },
+                  "PhoneNumber": {
+                    "type": "string"
+                  },
+                  "Gender": {
+                    "type": "string"
+                  },
+                  "Address": {
+                    "type": "string"
+                  },
+                  "Avatar": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "Degree": {
+                    "type": "string"
+                  },
+                  "experienceYears": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Bio": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "FullName": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "Password": {
+                  "style": "form"
+                },
+                "PhoneNumber": {
+                  "style": "form"
+                },
+                "Gender": {
+                  "style": "form"
+                },
+                "Address": {
+                  "style": "form"
+                },
+                "Avatar": {
+                  "style": "form"
+                },
+                "Degree": {
+                  "style": "form"
+                },
+                "experienceYears": {
+                  "style": "form"
+                },
+                "Bio": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/consultants/get-Consultants": {
+      "get": {
+        "tags": [
+          "Consultants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/consultants/get-detail": {
+      "get": {
+        "tags": [
+          "Consultants"
+        ],
+        "parameters": [
+          {
+            "name": "consultantsId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/consultants/delete-consultants": {
+      "delete": {
+        "tags": [
+          "Consultants"
+        ],
+        "parameters": [
+          {
+            "name": "consultantsId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/consultants/edit-consultants/{consultantsId}": {
+      "patch": {
+        "tags": [
+          "Consultants"
+        ],
+        "parameters": [
+          {
+            "name": "consultantsId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateConsultantsDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateConsultantsDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateConsultantsDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/DashBoard/stats": {
       "get": {
         "tags": [
           "DashBoard"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/payment/create-payment": {
+      "post": {
+        "tags": [
+          "Payment"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/payment/return-payment": {
+      "post": {
+        "tags": [
+          "Payment"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "orderId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cancel",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/test-result/create-test-result": {
+      "post": {
+        "tags": [
+          "TestResult"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTestResult"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTestResult"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTestResult"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/test-result/edit-test-result/{resultId}": {
+      "patch": {
+        "tags": [
+          "TestResult"
+        ],
+        "parameters": [
+          {
+            "name": "resultId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTestResult"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTestResult"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTestResult"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/test-result/get-test-result-by-user-booking": {
+      "get": {
+        "tags": [
+          "TestResult"
+        ],
+        "parameters": [
+          {
+            "name": "bookingId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/test-result/get-user-test-result-by-consutant": {
+      "get": {
+        "tags": [
+          "TestResult"
         ],
         "responses": {
           "200": {
@@ -280,17 +692,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Test"
+                "$ref": "#/components/schemas/TestDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Test"
+                "$ref": "#/components/schemas/TestDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Test"
+                "$ref": "#/components/schemas/TestDTO"
               }
             }
           }
@@ -375,6 +787,50 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Tests/get-test-by-consutant": {
+      "get": {
+        "tags": [
+          "Tests"
+        ],
+        "parameters": [
+          {
+            "name": "ConsutantId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Tests/get-test-detail": {
+      "get": {
+        "tags": [
+          "Tests"
+        ],
+        "parameters": [
+          {
+            "name": "TestId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Success"
@@ -654,6 +1110,8 @@
             "format": "uuid"
           },
           "title": {
+            "maxLength": 255,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
@@ -671,11 +1129,23 @@
             "nullable": true
           },
           "image": {
+            "maxLength": 255,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "author": {
             "$ref": "#/components/schemas/User"
+          }
+        },
+        "additionalProperties": false
+      },
+      "BookingDTO": {
+        "type": "object",
+        "properties": {
+          "testId": {
+            "type": "string",
+            "format": "uuid"
           }
         },
         "additionalProperties": false
@@ -692,23 +1162,24 @@
             "format": "uuid"
           },
           "degree": {
+            "maxLength": 100,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "experienceYears": {
-            "type": "string",
-            "format": "uuid",
+            "type": "integer",
+            "format": "int32",
             "nullable": true
           },
           "bio": {
             "type": "string",
             "nullable": true
           },
-          "consultantUserSchedules": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ConsultantUserSchedule"
-            },
+          "avatar": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
             "nullable": true
           },
           "consultationBookings": {
@@ -724,107 +1195,6 @@
               "$ref": "#/components/schemas/Question"
             },
             "nullable": true
-          },
-          "user": {
-            "$ref": "#/components/schemas/User"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ConsultantApplication": {
-        "type": "object",
-        "properties": {
-          "applicationId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "userId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "degree": {
-            "type": "string",
-            "nullable": true
-          },
-          "experienceYears": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "bio": {
-            "type": "string",
-            "nullable": true
-          },
-          "status": {
-            "type": "string",
-            "nullable": true
-          },
-          "submittedAt": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "reviewedBy": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "reviewedByNavigation": {
-            "$ref": "#/components/schemas/User"
-          },
-          "user": {
-            "$ref": "#/components/schemas/User"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ConsultantUserSchedule": {
-        "type": "object",
-        "properties": {
-          "scheduleId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "userId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "consultantId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "consultationBookingId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "scheduleDateTime": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "durationMinutes": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "status": {
-            "type": "string",
-            "nullable": true
-          },
-          "notes": {
-            "type": "string",
-            "nullable": true
-          },
-          "createAt": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "consultant": {
-            "$ref": "#/components/schemas/Consultant"
-          },
-          "consultationBooking": {
-            "$ref": "#/components/schemas/ConsultationBooking"
           },
           "user": {
             "$ref": "#/components/schemas/User"
@@ -852,26 +1222,25 @@
             "format": "date-time"
           },
           "title": {
+            "maxLength": 255,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "linkConsultation": {
+            "maxLength": 255,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "status": {
+            "maxLength": 20,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "consultant": {
             "$ref": "#/components/schemas/Consultant"
-          },
-          "consultantUserSchedules": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ConsultantUserSchedule"
-            },
-            "nullable": true
           },
           "feedbacks": {
             "type": "array",
@@ -882,6 +1251,87 @@
           },
           "user": {
             "$ref": "#/components/schemas/User"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateConsultantsDTO": {
+        "type": "object",
+        "properties": {
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "gender": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "avatar": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true
+          },
+          "degree": {
+            "type": "string",
+            "nullable": true
+          },
+          "experienceYears": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bio": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateTestResult": {
+        "type": "object",
+        "properties": {
+          "bookingID": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "typeSTIs": {
+            "type": "string",
+            "nullable": true
+          },
+          "testSample": {
+            "type": "string",
+            "nullable": true
+          },
+          "testBlood": {
+            "type": "string",
+            "nullable": true
+          },
+          "testUrine": {
+            "type": "string",
+            "nullable": true
+          },
+          "step": {
+            "type": "string",
+            "nullable": true
+          },
+          "diagnosticResults": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -929,6 +1379,41 @@
         ],
         "type": "integer",
         "format": "int32"
+      },
+      "Ewallet": {
+        "type": "object",
+        "properties": {
+          "walletId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "userId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "balance": {
+            "type": "number",
+            "format": "double"
+          },
+          "lastUpdated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "payments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Payment"
+            },
+            "nullable": true
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        },
+        "additionalProperties": false
       },
       "Feedback": {
         "type": "object",
@@ -1010,7 +1495,13 @@
           },
           "averageLength": {
             "type": "integer",
-            "format": "int32",
+            "format": "int32"
+          },
+          "ovulationReminders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OvulationReminder"
+            },
             "nullable": true
           },
           "user": {
@@ -1030,13 +1521,32 @@
             "type": "string",
             "format": "uuid"
           },
+          "cyclesId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "reminderDate": {
+            "$ref": "#/components/schemas/DateOnly"
+          },
           "type": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "reminderDate": {
+          "note": {
+            "maxLength": 255,
+            "minLength": 0,
             "type": "string",
-            "format": "date-time"
+            "nullable": true
+          },
+          "cycleDay": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "cycles": {
+            "$ref": "#/components/schemas/MenstrualCycle"
           },
           "user": {
             "$ref": "#/components/schemas/User"
@@ -1051,24 +1561,19 @@
             "type": "string",
             "format": "uuid"
           },
-          "userId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "testBooking": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
           "amount": {
             "type": "number",
             "format": "double"
           },
           "method": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "status": {
+            "maxLength": 20,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
@@ -1077,11 +1582,13 @@
             "format": "date-time",
             "nullable": true
           },
-          "testBookingNavigation": {
-            "$ref": "#/components/schemas/TestBooking"
+          "walletId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
           },
-          "user": {
-            "$ref": "#/components/schemas/User"
+          "wallet": {
+            "$ref": "#/components/schemas/Ewallet"
           }
         },
         "additionalProperties": false
@@ -1131,6 +1638,8 @@
             "format": "uuid"
           },
           "roleName": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
@@ -1152,6 +1661,8 @@
             "format": "uuid"
           },
           "name": {
+            "maxLength": 100,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
@@ -1162,6 +1673,20 @@
           "price": {
             "type": "number",
             "format": "double"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isBooked": {
+            "type": "boolean"
+          },
+          "isDelete": {
+            "type": "boolean"
+          },
+          "consutantId": {
+            "type": "string",
+            "format": "uuid"
           },
           "testBookings": {
             "type": "array",
@@ -1176,6 +1701,9 @@
               "$ref": "#/components/schemas/TestResult"
             },
             "nullable": true
+          },
+          "consultants": {
+            "$ref": "#/components/schemas/Consultant"
           }
         },
         "additionalProperties": false
@@ -1200,6 +1728,8 @@
             "format": "date-time"
           },
           "status": {
+            "maxLength": 20,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
@@ -1210,18 +1740,37 @@
             },
             "nullable": true
           },
-          "payments": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Payment"
-            },
-            "nullable": true
-          },
           "test": {
             "$ref": "#/components/schemas/Test"
           },
           "user": {
             "$ref": "#/components/schemas/User"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TestDTO": {
+        "type": "object",
+        "properties": {
+          "testName": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "price": {
+            "type": "number",
+            "format": "double"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "consultantId": {
+            "type": "string",
+            "format": "uuid"
           }
         },
         "additionalProperties": false
@@ -1242,18 +1791,26 @@
             "format": "uuid"
           },
           "typeStis": {
+            "maxLength": 100,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "testSample": {
+            "maxLength": 100,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "testBlood": {
+            "maxLength": 100,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "testUrine": {
+            "maxLength": 100,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
@@ -1278,30 +1835,38 @@
             "format": "uuid"
           },
           "fullName": {
+            "maxLength": 100,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "email": {
+            "maxLength": 100,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "passwordHash": {
+            "maxLength": 255,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "phoneNumber": {
+            "maxLength": 20,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "gender": {
+            "maxLength": 20,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "address": {
-            "type": "string",
-            "nullable": true
-          },
-          "avatar": {
+            "maxLength": 255,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
@@ -1318,31 +1883,16 @@
             "type": "boolean",
             "nullable": true
           },
+          "avatar": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
           "blogs": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Blog"
-            },
-            "nullable": true
-          },
-          "consultantApplicationReviewedByNavigations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ConsultantApplication"
-            },
-            "nullable": true
-          },
-          "consultantApplicationUsers": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ConsultantApplication"
-            },
-            "nullable": true
-          },
-          "consultantUserSchedules": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ConsultantUserSchedule"
             },
             "nullable": true
           },
@@ -1357,6 +1907,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ConsultationBooking"
+            },
+            "nullable": true
+          },
+          "ewallets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Ewallet"
             },
             "nullable": true
           },
@@ -1378,13 +1935,6 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/OvulationReminder"
-            },
-            "nullable": true
-          },
-          "payments": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Payment"
             },
             "nullable": true
           },
@@ -1411,53 +1961,6 @@
               "$ref": "#/components/schemas/TestResult"
             },
             "nullable": true
-          },
-          "userMessageReceivers": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/UserMessage"
-            },
-            "nullable": true
-          },
-          "userMessageSenders": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/UserMessage"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UserMessage": {
-        "type": "object",
-        "properties": {
-          "messageId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "senderId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "receiverId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "message": {
-            "type": "string",
-            "nullable": true
-          },
-          "sentAt": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "receiver": {
-            "$ref": "#/components/schemas/User"
-          },
-          "sender": {
-            "$ref": "#/components/schemas/User"
           }
         },
         "additionalProperties": false

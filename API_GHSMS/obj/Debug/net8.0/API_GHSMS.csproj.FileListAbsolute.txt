@@ -800,3 +800,8 @@ E:\SWP_WinnerTech\swp391_ghsm_backend\API_GHSMS\bin\Debug\net8.0\AngleSharp.dll
 E:\SWP_WinnerTech\swp391_ghsm_backend\API_GHSMS\bin\Debug\net8.0\AngleSharp.Css.dll
 E:\SWP_WinnerTech\swp391_ghsm_backend\API_GHSMS\bin\Debug\net8.0\HtmlSanitizer.dll
 E:\SWP_WinnerTech\swp391_ghsm_backend\API_GHSMS\bin\Debug\net8.0\CloudinaryDotNet.dll
+E:\SWP_WinnerTech\swp391_ghsm_backend\API_GHSMS\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\SWP_WinnerTech\swp391_ghsm_backend\API_GHSMS\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+E:\SWP_WinnerTech\swp391_ghsm_backend\API_GHSMS\bin\Debug\net8.0\payos-lib-backend-dotnet.dll
+E:\SWP_WinnerTech\swp391_ghsm_backend\API_GHSMS\bin\Debug\net8.0\PayOSService.dll
+E:\SWP_WinnerTech\swp391_ghsm_backend\API_GHSMS\bin\Debug\net8.0\PayOSService.pdb

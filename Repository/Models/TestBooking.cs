@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
+using Repository.Models.Enum;
 
 namespace Repository.Models;
 
@@ -25,17 +26,17 @@ public partial class TestBooking
     [Column("status")]
     [StringLength(20)]
     [Unicode(false)]
-    public string? Status { get; set; }
+    public string Status { get; set; }
 
-    [Column("scheduleId")]
-    public Guid? ScheduleId { get; set; }
+    //[Column("scheduleId")]
+    //public Guid? ScheduleId { get; set; }
 
     [InverseProperty("TestBooking")]
     public virtual ICollection<Feedback> Feedbacks { get; set; } = new List<Feedback>();
 
-    [ForeignKey("ScheduleId")]
-    [InverseProperty("TestBookings")]
-    public virtual ConsultantUserSchedule? Schedule { get; set; }
+    //[ForeignKey("ScheduleId")]
+    //[InverseProperty("TestBookings")]
+    //public virtual ConsultantUserSchedule? Schedule { get; set; }
 
     [ForeignKey("TestId")]
     [InverseProperty("TestBookings")]

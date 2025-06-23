@@ -1,4 +1,4 @@
-using API_GHSMS.Controllers;
+﻿using API_GHSMS.Controllers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using OhBau.Service.CloudinaryService;
@@ -8,6 +8,9 @@ using Service.Implement;
 using Service.Interface;
 using System.Text;
 using API_GHSMS.Hubs;
+using System.Text.Json.Serialization;
+using PayOSService.Config;
+using PayOSService.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,9 +36,23 @@ builder.Services.AddScoped<DashBoardRepository>();
 builder.Services.AddScoped<AuthenRepository>();
 builder.Services.AddScoped<IAuthenService, AuthenService>();
 
+builder.Services.AddScoped<ConsultantsRepository>();
+builder.Services.AddScoped<IConsultantsService, ConsultantsService>();
+
 builder.Services.AddScoped<BlogRepository>();
 builder.Services.AddScoped<IBlogService, BlogService>();
 builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
+builder.Services.AddScoped<BookingRepository>();
+builder.Services.AddScoped<IBookingService, BookingService>();
+builder.Services.AddScoped<TestResultRepository>();
+builder.Services.AddScoped<ITestResultService, TestResultSerivce>();
+builder.Services.AddSignalR();
+
+builder.Services.Configure<PayOSConfig>(
+    builder.Configuration.GetSection(PayOSConfig.ConfigName));
+builder.Services.AddHttpClient<IPayOSService, PayOSService.Services.PayOSService>();
+builder.Services.Configure<PayOSConfig>(builder.Configuration.GetSection("PayOS"));
+
 
 
 builder.Services.AddSingleton(sp =>
@@ -48,6 +65,13 @@ builder.Services.AddSingleton(sp =>
     return account;
 }   
 );
+
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+        options.JsonSerializerOptions.WriteIndented = true; 
+    });
 
 builder.Services.AddSingleton(sp =>
 {
