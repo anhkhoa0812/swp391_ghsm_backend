@@ -19,12 +19,13 @@ namespace API_GHSMS.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
         {
-            var token = await _authenService.LoginWithToken(loginDto.Email, loginDto.Password);
-            if (token == null)
+            var response = await _authenService.LoginWithToken(loginDto.Email, loginDto.Password);
+            if (response == null)
                 return Unauthorized(new { message = "Invalid credentials." });
 
-            return Ok(new { token });
+            return Ok(response);
         }
+
 
 
         [HttpPost("register")]

@@ -53,15 +53,15 @@ namespace Repository.Repository
             return tokenHandler.WriteToken(token);
         }
 
-        public async Task<string> LoginWithToken(string email, string password)
+        public async Task<(string, User)> LoginWithToken(string email, string password)
         {
             var user = await _context.Users.Include(u => u.Role)
-                                           .FirstOrDefaultAsync(u => u.Email == email);
+                .FirstOrDefaultAsync(u => u.Email == email);
 
             if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.PasswordHash))
-                return null;
+                return (null, null);
 
-            return GenerateJwtToken(user);
+            return (GenerateJwtToken(user), user);
         }
 
         public async Task<User> RegisterAsync(string fullName, string email, string password, Guid roleId, string phoneNumber, string gender)
