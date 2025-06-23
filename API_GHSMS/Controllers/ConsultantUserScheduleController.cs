@@ -12,14 +12,14 @@ namespace API_GHSMS.Controllers
     public class ConsultantUserScheduleController(IConsultantUserScheduleService _service) : Controller
     {
 
-        [HttpPost("create")]
-        [Authorize]
-        public async Task<IActionResult>Create(CreateConsultantUserSchedule request)
-        {
-            var userId = UserUtil.GetUserId(User);
-            request.userId = userId;
-            var response = await _service.Create(request);
-            return StatusCode(200, new { Message = "Create success" });
-        }
+        //[HttpPost("create")]
+        //[Authorize]
+        //public async Task<IActionResult>Create(CreateConsultantUserSchedule request)
+        //{
+        //    var userId = UserUtil.GetUserId(User);
+        //    request.userId = userId;
+        //    var response = await _service.Create(request);
+        //    return StatusCode(200, new { Message = "Create success" });
+        //}
     }
 }

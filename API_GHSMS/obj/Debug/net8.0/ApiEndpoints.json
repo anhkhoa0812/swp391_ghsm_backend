@@ -71,7 +71,7 @@
     "Parameters": [
       {
         "Name": "test",
-        "Type": "Repository.Models.Test",
+        "Type": "Repository.DTO.TestDTO",
         "IsRequired": true
       }
     ],
@@ -120,6 +120,38 @@
         "Name": "test",
         "Type": "Repository.Models.Test",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_GHSMS.Controllers.TestsController",
+    "Method": "GetTestByConsutant",
+    "RelativePath": "api/Tests/get-test-by-consutant",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ConsutantId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_GHSMS.Controllers.TestsController",
+    "Method": "GetTestDetail",
+    "RelativePath": "api/Tests/get-test-detail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "TestId",
+        "Type": "System.Guid",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -272,19 +304,13 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "API_GHSMS.Controllers.ConsultantUserScheduleController",
-    "Method": "Create",
-    "RelativePath": "api/v1/consultant-user-schedule/create",
-    "HttpMethod": "POST",
+    "ContainingType": "API_GHSMS.Controllers.BookingController",
+    "Method": "GetUserBooking",
+    "RelativePath": "api/v1/booking/get-booking-by-user",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "Repository.DTO.CreateConsultantUserSchedule",
-        "IsRequired": true
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -456,6 +482,69 @@
         "IsRequired": false
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_GHSMS.Controllers.TestResultController",
+    "Method": "CreateTestResult",
+    "RelativePath": "api/v1/test-result/create-test-result",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Repository.DTO.CreateTestResult",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_GHSMS.Controllers.TestResultController",
+    "Method": "EditTestResult",
+    "RelativePath": "api/v1/test-result/edit-test-result/{resultId}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "resultId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Repository.DTO.CreateTestResult",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_GHSMS.Controllers.TestResultController",
+    "Method": "GetTestResultByUserBooking",
+    "RelativePath": "api/v1/test-result/get-test-result-by-user-booking",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookingId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_GHSMS.Controllers.TestResultController",
+    "Method": "GetUserTestResultByConsulTant",
+    "RelativePath": "api/v1/test-result/get-user-test-result-by-consutant",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

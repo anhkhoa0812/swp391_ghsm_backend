@@ -70,7 +70,10 @@ namespace API_GHSMS.Controllers
 
             else
             {
+                var getTest = await _context.Tests.FirstOrDefaultAsync(x => x.TestId == getBooking.TestBooking.TestId);
+                getTest.isBooked = false;
                 getBooking.TestBooking.Status = "Payment Cancelled";
+                _context.Tests.Update(getTest);
                 _context.Transaction.Update(getBooking);
                 await _context.SaveChangesAsync();
                 return Ok("Payment Cancelled");

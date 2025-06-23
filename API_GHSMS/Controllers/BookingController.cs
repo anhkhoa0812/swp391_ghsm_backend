@@ -26,5 +26,14 @@ namespace API_GHSMS.Controllers
 
             return StatusCode(200, new { Message = "Booking success", BookingID = response });
         }
+
+        [HttpGet("get-booking-by-user")]
+        [Authorize]
+        public async Task<IActionResult> GetUserBooking()
+        {
+            var userId = UserUtil.GetUserId(User);
+            var response = await _bookingService.GetUserBooking(userId);
+            return Ok(new { Message = "Get booking success", response });
+        }
     }
 }

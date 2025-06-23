@@ -11,9 +11,9 @@ namespace Service.Implement
 {
     public class ConsultantUserScheduleService(ConsultantUserScheduleRepository _repository) : IConsultantUserScheduleService
     {
-        public async Task<bool> Create(CreateConsultantUserSchedule request)
-        {
-            return await _repository.Create(request);
-        }
+        //public async Task<bool> Create(CreateConsultantUserSchedule request)
+        //{
+        //    return await _repository.Create(request);
+        //}
     }
 }

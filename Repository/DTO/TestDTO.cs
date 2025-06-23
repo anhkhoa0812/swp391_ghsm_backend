@@ -11,5 +11,7 @@ namespace Repository.DTO
         public string TestName {  get; set; }
         public string Description { get; set; }
         public decimal Price {  get; set; }
+        public DateTime Date { get; set; }
+        public Guid consultantId { get; set; }
     }
 }

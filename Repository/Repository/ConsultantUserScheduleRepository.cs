@@ -11,30 +11,30 @@ namespace Repository.Repository
 {
     public class ConsultantUserScheduleRepository(Swp391ghsmContext _context)
     {
-        public async Task<bool> Create(CreateConsultantUserSchedule request)
-        {
-            try
-            {
-                var create = new ConsultantUserSchedule
-                {
-                    ScheduleId = Guid.NewGuid(),
-                    ConsultantId = request.ConsutantId,
-                    ScheduleDateTime = request.scheduleDateTime,
-                    DurationMinutes = request.durationMinutes,
-                    Status = "PENDING",
-                    Notes = request.notes,
-                    UserId = request.userId,
+        //public async Task<bool> Create(CreateConsultantUserSchedule request)
+        //{
+        //    try
+        //    {
+        //        var create = new ConsultantUserSchedule
+        //        {
+        //            ScheduleId = Guid.NewGuid(),
+        //            ConsultantId = request.ConsutantId,
+        //            ScheduleDateTime = request.scheduleDateTime,
+        //            DurationMinutes = request.durationMinutes,
+        //            Status = "PENDING",
+        //            Notes = request.notes,
+        //            UserId = request.userId,
 
-                };
+        //        };
 
-                await _context.ConsultantUserSchedules.AddAsync(create);
-                await _context.SaveChangesAsync();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.ToString());
-            }
-        }
+        //        await _context.ConsultantUserSchedules.AddAsync(create);
+        //        await _context.SaveChangesAsync();
+        //        return true;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception(ex.ToString());
+        //    }
+        //}
     }
 }

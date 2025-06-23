@@ -31,8 +31,8 @@ public partial class Consultant
     [Unicode(false)]
     public string? Avatar { get; set; }
 
-    [InverseProperty("Consultant")]
-    public virtual ICollection<ConsultantUserSchedule> ConsultantUserSchedules { get; set; } = new List<ConsultantUserSchedule>();
+    //[InverseProperty("Consultant")]
+    //public virtual ICollection<ConsultantUserSchedule> ConsultantUserSchedules { get; set; } = new List<ConsultantUserSchedule>();
 
     [InverseProperty("Consultant")]
     public virtual ICollection<ConsultationBooking> ConsultationBookings { get; set; } = new List<ConsultationBooking>();

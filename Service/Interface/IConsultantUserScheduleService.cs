@@ -9,6 +9,6 @@ namespace Service.Interface
 {
     public interface IConsultantUserScheduleService
     {
-        Task<bool> Create(CreateConsultantUserSchedule request);
+        //Task<bool> Create(CreateConsultantUserSchedule request);
     }
 }

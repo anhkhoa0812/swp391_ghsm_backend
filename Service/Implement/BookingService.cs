@@ -15,5 +15,10 @@ namespace Service.Implement
         {
            return await _bookingRepository.Booking(request);
         }
+
+        public async Task<List<GetBookingByUserResponse>> GetUserBooking(Guid userId)
+        {
+            return await _bookingRepository.GetBookingByUser(userId);
+        }
     }
 }

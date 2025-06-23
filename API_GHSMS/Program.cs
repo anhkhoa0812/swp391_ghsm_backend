@@ -44,6 +44,8 @@ builder.Services.AddScoped<IBlogService, BlogService>();
 builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
 builder.Services.AddScoped<BookingRepository>();
 builder.Services.AddScoped<IBookingService, BookingService>();
+builder.Services.AddScoped<TestResultRepository>();
+builder.Services.AddScoped<ITestResultService, TestResultSerivce>();
 builder.Services.AddSignalR();
 
 builder.Services.Configure<PayOSConfig>(

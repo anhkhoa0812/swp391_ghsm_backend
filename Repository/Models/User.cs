@@ -61,8 +61,8 @@ public partial class User
     [InverseProperty("Author")]
     public virtual ICollection<Blog> Blogs { get; set; } = new List<Blog>();
 
-    [InverseProperty("User")]
-    public virtual ICollection<ConsultantUserSchedule> ConsultantUserSchedules { get; set; } = new List<ConsultantUserSchedule>();
+    //[InverseProperty("User")]
+    //public virtual ICollection<ConsultantUserSchedule> ConsultantUserSchedules { get; set; } = new List<ConsultantUserSchedule>();
 
     [InverseProperty("User")]
     public virtual ICollection<Consultant> Consultants { get; set; } = new List<Consultant>();

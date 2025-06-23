@@ -40,8 +40,8 @@ public partial class ConsultationBooking
     [InverseProperty("ConsultationBookings")]
     public virtual Consultant Consultant { get; set; } = null!;
 
-    [InverseProperty("ConsultationBooking")]
-    public virtual ICollection<ConsultantUserSchedule> ConsultantUserSchedules { get; set; } = new List<ConsultantUserSchedule>();
+    //[InverseProperty("ConsultationBooking")]
+    //public virtual ICollection<ConsultantUserSchedule> ConsultantUserSchedules { get; set; } = new List<ConsultantUserSchedule>();
 
     [InverseProperty("ConsultationBooking")]
     public virtual ICollection<Feedback> Feedbacks { get; set; } = new List<Feedback>();

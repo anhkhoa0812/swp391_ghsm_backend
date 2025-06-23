@@ -28,15 +28,15 @@ public partial class TestBooking
     [Unicode(false)]
     public string Status { get; set; }
 
-    [Column("scheduleId")]
-    public Guid? ScheduleId { get; set; }
+    //[Column("scheduleId")]
+    //public Guid? ScheduleId { get; set; }
 
     [InverseProperty("TestBooking")]
     public virtual ICollection<Feedback> Feedbacks { get; set; } = new List<Feedback>();
 
-    [ForeignKey("ScheduleId")]
-    [InverseProperty("TestBookings")]
-    public virtual ConsultantUserSchedule? Schedule { get; set; }
+    //[ForeignKey("ScheduleId")]
+    //[InverseProperty("TestBookings")]
+    //public virtual ConsultantUserSchedule? Schedule { get; set; }
 
     [ForeignKey("TestId")]
     [InverseProperty("TestBookings")]

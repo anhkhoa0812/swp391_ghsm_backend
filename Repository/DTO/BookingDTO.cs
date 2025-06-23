@@ -12,6 +12,5 @@ namespace Repository.DTO
         [JsonIgnore(Condition =JsonIgnoreCondition.Always)]
         public Guid UserId { get; set; }
         public Guid TestId { get; set; }
-        public Guid ScheduleId {  get; set; }
     }
 }

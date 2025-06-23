@@ -18,20 +18,22 @@ namespace Repository.Repository
             try
             {
                 var checkBookingDate = await _context.TestBookings
-                                     .FirstOrDefaultAsync(x => x.UserId == request.UserId && x.ScheduleId == request.ScheduleId);
+                                     .FirstOrDefaultAsync(x => x.UserId == request.UserId && x.TestId == request.TestId);
                 if (checkBookingDate != null)
                 {
                     return "208";
                 }
 
-                var getSchedule = await _context.ConsultantUserSchedules.FirstOrDefaultAsync(x => x.ScheduleId == request.ScheduleId);
+                var getTest = await _context.Tests.FirstOrDefaultAsync(x => x.TestId == request.TestId);
+                getTest.isBooked = true;
+
+                 _context.Tests.Update(getTest);
                 var createBooking = new TestBooking
                 {
                     TestBookingId = Guid.NewGuid(),
                     UserId = request.UserId,
-                    ScheduleId = request.ScheduleId,
                     TestId = request.TestId,
-                    ScheduledDate = getSchedule.ScheduleDateTime,
+                    ScheduledDate = getTest.Date,
                     Status = "Wait For Payment"
                 };
 
@@ -44,5 +46,20 @@ namespace Repository.Repository
             }
 
         }
+
+        public async Task<List<GetBookingByUserResponse>>GetBookingByUser(Guid userId)
+        {
+            var getBookings = await _context.TestBookings.Where(x => x.UserId == userId).ToListAsync();
+
+            var mapItem = getBookings.Select(x => new GetBookingByUserResponse
+            {
+                TestBookingId = x.TestBookingId,
+                scheduledDate = x.ScheduledDate,
+                Status = x.Status
+            }).ToList();
+
+            return mapItem;
+        }     
+        
     }
 }

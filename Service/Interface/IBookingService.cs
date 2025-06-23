@@ -10,5 +10,6 @@ namespace Service.Interface
     public interface IBookingService
     {
         Task<string> Booking(BookingDTO request);
+        Task<List<GetBookingByUserResponse>> GetUserBooking(Guid userId);
     }
 }

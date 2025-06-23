@@ -173,9 +173,11 @@ namespace Repository.Repository
             checkUpdate.ExperienceYears = request.experienceYears;
             checkUpdate.Bio = request.Bio;
 
+
             _context.Consultants.Update(checkUpdate);
             await _context.SaveChangesAsync();
             return true;
         }
+
     }
 }
