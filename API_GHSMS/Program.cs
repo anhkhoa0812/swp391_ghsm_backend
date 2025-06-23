@@ -9,8 +9,10 @@ using Service.Interface;
 using System.Text;
 using API_GHSMS.Hubs;
 using System.Text.Json.Serialization;
+using Microsoft.OpenApi.Models;
 using PayOSService.Config;
 using PayOSService.Services;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,8 +27,41 @@ builder.Services.AddControllers()
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<Swp391ghsmContext>();
+builder.Services.AddSwaggerGen(options =>
+    {
+        options.SwaggerDoc("v1", new OpenApiInfo() { Title = "API GHSMS V1", Version = "v1" });
+        options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+        {
+            In = ParameterLocation.Header,
+            Description = "Please enter a valid token",
+            Name = "Authorization",
+            Type = SecuritySchemeType.Http,
+            BearerFormat = "JWT",
+            Scheme = "Bearer"
+        });
+        options.AddSecurityRequirement(new OpenApiSecurityRequirement
+        {
+            {
+                new OpenApiSecurityScheme
+                {
+                    Reference = new OpenApiReference
+                    {
+                        Type = ReferenceType.SecurityScheme,
+                        Id = "Bearer"
+                    }
+                },
+                new string[] { }
+            }
+        });
+        options.MapType<TimeOnly>(() => new OpenApiSchema
+        {
+            Type = "string",
+            Format = "time",
+            Example = OpenApiAnyFactory.CreateFromJson("\"13:45:42.0000000\"")
+        });
+    }
+    
+);builder.Services.AddScoped<Swp391ghsmContext>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ITestService, TestService>();
 builder.Services.AddScoped<IDashBoardService,DashBoardService>();
@@ -35,7 +70,6 @@ builder.Services.AddScoped<TestRepository>();
 builder.Services.AddScoped<DashBoardRepository>();
 builder.Services.AddScoped<AuthenRepository>();
 builder.Services.AddScoped<IAuthenService, AuthenService>();
-
 builder.Services.AddScoped<ConsultantsRepository>();
 builder.Services.AddScoped<IConsultantsService, ConsultantsService>();
 
@@ -69,10 +103,9 @@ builder.Services.AddSingleton(sp =>
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
-        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
-        options.JsonSerializerOptions.WriteIndented = true; 
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
     });
-
+builder.Services.AddCors();
 builder.Services.AddSingleton(sp =>
 {
     var account = sp.GetRequiredService<CloudinaryDotNet.Account>();
@@ -105,12 +138,15 @@ builder.Services.AddAuthorization();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || app.Environment.IsProduction() || app.Environment.IsStaging())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors(builder =>
+    builder.AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader());
 app.UseStaticFiles();
 app.UseHttpsRedirection();
 
